@@ -1,0 +1,120 @@
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
+  project: "./tsconfig.json"
+settings:
+  import/resolver:
+    node:
+      extensions: [".json", ".mjs", ".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+    typescript: {}
+env:
+  node: true
+  es2020: true
+globals:
+  jest: true
+extends:
+  - airbnb-base
+  - plugin:@typescript-eslint/recommended-requiring-type-checking
+plugins:
+  - "@typescript-eslint"
+  - import
+  - import-helpers
+rules:
+  no-console:
+    - error
+  max-len:
+    - error
+    - 120
+  indent:
+    - error
+    - 2
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  comma-dangle:
+    - error
+    - never
+  semi: off
+  arrow-parens:
+    - warn
+    - as-needed
+  newline-per-chained-call:
+    - error
+    - ignoreChainWithDepth: 2
+  no-shadow: off
+  arrow-body-style: off
+  import/extensions:
+    - error
+    - ignorePackages
+    - js: never
+      ts: never
+  import-helpers/order-imports:
+    - warn
+    - newlinesBetween: always
+      groups:
+        - module
+        - "/^~/"
+        - - parent
+          - sibling
+          - index
+      alphabetize:
+        order: asc
+        ignoreCase: true
+  import/no-default-export: error
+  import/prefer-default-export: off
+  "@typescript-eslint/semi":
+    - error
+    - never
+  "@typescript-eslint/member-delimiter-style":
+    - error
+    - multiline:
+        delimiter: none
+      singleline:
+        delimiter: semi
+        requireLast: false
+  "@typescript-eslint/naming-convention":
+    - error
+    - selector: variable
+      modifiers:
+        - const
+      format:
+        - strictCamelCase
+        - StrictPascalCase
+        - UPPER_CASE
+    - selector:
+        - class
+        - enum
+        - enumMember
+      format:
+        - StrictPascalCase
+    - selector: interface
+      format:
+        - StrictPascalCase
+    - selector: typeAlias
+      format:
+        - StrictPascalCase
+  "@typescript-eslint/no-magic-numbers":
+    - error
+    - ignoreDefaultValues: true
+      ignoreArrayIndexes: true
+      ignoreEnums: true
+  "@typescript-eslint/ban-types":
+    - error
+  "@typescript-eslint/type-annotation-spacing":
+    - error
+    - after: true
+  "@typescript-eslint/explicit-function-return-type":
+    - error
+    - allowTypedFunctionExpressions: true
+  "@typescript-eslint/unbound-method": off
+overrides:
+  - files:
+    - "*.test.ts"
+    - "*.spec.ts"
+    rules:
+      import/no-extraneous-dependencies: off
+      "@typescript-eslint/no-unsafe-assignment": off

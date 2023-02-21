@@ -1,0 +1,25 @@
+{
+  "comments": false,
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "node": "16"
+        }
+      }
+    ],
+    "@babel/typescript"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "cwd": "babelrc",
+        "alias": {
+          "@": "./src"
+        }
+      }
+    ]
+  ]
+}
