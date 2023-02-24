@@ -4,8 +4,8 @@ import { Logger } from './protocols/logger'
 const DEFAULT_SERVER_LISTEN_PORT = 3010
 
 export interface MakeAppArgs {
-  routes: Http.Route[]
   httpServer: Http.Server
+  routes: Http.Route[]
   logger: Logger
 }
 
@@ -13,7 +13,7 @@ export interface App {
   start(): Promise<void>
 }
 
-export function makeApp({ routes, httpServer, logger }: MakeAppArgs): App {
+export function makeApp({ httpServer, routes, logger }: MakeAppArgs): App {
   routes.forEach(route => {
     httpServer.endpoint(route.method, route.path, route.handler)
   })
