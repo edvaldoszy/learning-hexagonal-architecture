@@ -1,5 +1,3 @@
-import { MakeUseCase } from '@/protocols/make-use-case'
-
 import { User } from '../entities/user'
 import { EmailAlreadyTakenError } from './errors/email-already-taken'
 
@@ -17,7 +15,7 @@ interface MakeCreateUserArgs {
 }
 
 export const makeCreateUser: MakeUseCase<MakeCreateUserArgs, CreateUserUseCase> = ({ userService }) => {
-  return async (user: Omit<User, 'id'>): Promise<string> => {
+  return async user => {
     const isEmailAvailable = await userService.isEmailAvailable(user.email)
     if (!isEmailAvailable) {
       throw new EmailAlreadyTakenError(user.email)

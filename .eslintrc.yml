@@ -118,3 +118,7 @@ overrides:
     rules:
       import/no-extraneous-dependencies: off
       "@typescript-eslint/no-unsafe-assignment": off
+  - files:
+    - "*.d.ts"
+    rules:
+      no-unused-vars: off

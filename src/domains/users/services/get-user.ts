@@ -1,5 +1,4 @@
 import { Database } from '@/protocols/database'
-import { MakeService } from '@/protocols/make-service'
 
 import { User } from '../entities/user'
 import { GetUserService } from '../usecases/get-user'

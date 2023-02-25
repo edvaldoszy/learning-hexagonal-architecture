@@ -1,5 +1,3 @@
-import { MakeUseCase } from '@/protocols/make-use-case'
-
 import { User } from '../entities/user'
 import { UserNotFoundError } from './errors/user-not-found'
 
@@ -16,7 +14,7 @@ interface MakeGetUserArgs {
 }
 
 export const makeGetUser: MakeUseCase<MakeGetUserArgs, GetUserUseCase> = ({ userService }) => {
-  return async (id: string): Promise<User> => {
+  return async id => {
     const user = await userService.getById(id)
     if (!user) {
       throw new UserNotFoundError(id)
