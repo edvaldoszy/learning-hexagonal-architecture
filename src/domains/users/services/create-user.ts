@@ -22,7 +22,7 @@ export const makeCreateUserService: MakeService<MakeCreateUserArgs, CreateUserSe
       const result = await builder.from('users')
         .select('email')
         .where('email', email)
-        .first<User>()
+        .first<User | undefined>()
 
       return !result?.email
     }

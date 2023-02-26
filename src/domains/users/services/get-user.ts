@@ -12,7 +12,7 @@ export const makeGetUserService: MakeService<MakeGetUserServiceArgs, GetUserServ
     async getById(id): Promise<User | undefined> {
       const record = await builder.from('users')
         .where('users.id', id)
-        .first<User>()
+        .first<User | undefined>()
 
       return record
     }

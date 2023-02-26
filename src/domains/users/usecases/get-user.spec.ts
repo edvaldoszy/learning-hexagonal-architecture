@@ -3,7 +3,7 @@ import { randEmail, randFullName, randUuid } from '@ngneat/falso'
 import { UserNotFoundError } from './errors/user-not-found'
 import { GetUserService, makeGetUser } from './get-user'
 
-describe('GetUserUseCase', () => {
+describe('User > GetUserUseCase', () => {
   const userService: GetUserService = {
     getById: jest.fn()
   }

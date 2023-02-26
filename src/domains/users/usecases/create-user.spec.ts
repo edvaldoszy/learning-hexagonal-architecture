@@ -3,7 +3,7 @@ import { randEmail, randFullName, randUuid } from '@ngneat/falso'
 import { CreateUserService, makeCreateUser } from './create-user'
 import { EmailAlreadyTakenError } from './errors/email-already-taken'
 
-describe('CreateUserUseCase', () => {
+describe('User > CreateUserUseCase', () => {
   const userService: CreateUserService = {
     isEmailAvailable: jest.fn(),
     create: jest.fn()
