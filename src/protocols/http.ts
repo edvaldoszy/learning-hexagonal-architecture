@@ -6,6 +6,16 @@ export namespace Http {
     Delete = 'delete'
   }
 
+  export enum StatusCode {
+    Ok = 200,
+    BadRequest = 400,
+    Unauthorized = 401,
+    Forbidden = 403,
+    NotFound = 404,
+    PreconditionFailed = 412,
+    UnprocessableEntity = 422
+  }
+
   export interface Response<Body> {
     statusCode: number
     body: Body
